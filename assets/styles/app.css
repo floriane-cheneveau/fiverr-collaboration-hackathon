@@ -1,25 +1,35 @@
 /*==============Page d'accueil========*/
-h1{
-    margin-bottom: 150px;
-    border: 3px solid green;
+
+.partie1{
+background-color: rgb(82, 156, 82);
 }
 
-h1, h2 {
+h1{
+    margin-bottom: 150px;
+}
+
+h1 {
     text-align: center;
-    color:rgb(226, 255, 121);
+    color:white;
     font-size: 3rem;
     padding-bottom: 15px;
 }
 
+h2 {
+    text-align: center;
+    color: green;
+    font-size: 3rem;
+    padding-bottom: 15px;
+}
 .titre{
     margin-bottom: 30px;
 }
 
 .explication {
-    background-color:rgb(226, 255, 121);
+    background-color:white;
     color: rgb(93, 206, 102);
     padding: 10px;
-    margin: 5px 33% 150px 10px;
+    margin: 10px 33% 150px 10px;
     border-radius: 20px 5px;
     box-shadow:20px 20px 10px rgb(24, 71, 9);
     text-align: center;
@@ -47,7 +57,7 @@ li{
     margin: 5% 15%;
     padding: 2rem;
     border: 3px solid rgb(131, 37, 37);
-    border-radius: 150px 25px 35px 75px;
+    border-radius: 150px;
     box-shadow: 0px 0px 28px 4px green;
     text-align: center;
     font-family: cursive;

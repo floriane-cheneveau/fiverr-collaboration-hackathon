@@ -1,0 +1,54 @@
+/*==============Page d'accueil========*/
+h1{
+    margin-bottom: 150px;
+    border: 3px solid green;
+}
+
+h1, h2 {
+    text-align: center;
+    color:rgb(226, 255, 121);
+    font-size: 3rem;
+    padding-bottom: 15px;
+}
+
+.titre{
+    margin-bottom: 30px;
+}
+
+.explication {
+    background-color:rgb(226, 255, 121);
+    color: rgb(93, 206, 102);
+    padding: 10px;
+    margin: 5px 33% 150px 10px;
+    border-radius: 20px 5px;
+    box-shadow:20px 20px 10px rgb(24, 71, 9);
+    text-align: center;
+    font-family: cursive;
+    font-size: 1.5rem;
+}
+
+.logo {
+width: 30%;
+height: 30%;
+border-radius: 400px;
+border: 3px solid green;
+}
+
+ul{
+    display: flex;
+    justify-content: space-around;
+    margin: 5%;
+    padding: 0 5rem;
+    font-size: 2rem;
+    list-style-type: none;
+}
+
+li{
+    margin: 5% 15%;
+    padding: 2rem;
+    border: 3px solid rgb(131, 37, 37);
+    border-radius: 150px 25px 35px 75px;
+    box-shadow: 0px 0px 28px 4px green;
+    text-align: center;
+    font-family: cursive;
+}

@@ -1,4 +1,18 @@
 {{ form_start(form) }}
-    {{ form_widget(form) }}
+    {#{{ form_widget(form) }}#}
+    {{ form_row(form.nom) }}
+    {{ form_row(form.sommaire) }}
+    {{ form_row(form.tempsDeLivraison) }}
+    <h3>Collaborations</h3>
+    <ul class="collaborations" data-prototype="{{ form_widget(form.collaborations.vars.prototype)|e('html_attr') }}">
+        {% for collaboration in form.collaborations %}
+            <li>
+                {{ form_row(collaboration.remuneration) }}
+                {{ form_row(collaboration.categorie) }}
+                {{ form_row(collaboration.freelancer) }}
+            </li>
+        {% endfor %}
+    </ul>
+    <button type="button" class="add_item_link" data-collection-holder-class="collaborations">Add a collaboration</button>
     <button class="btn">{{ button_label|default('Save') }}</button>
 {{ form_end(form) }}

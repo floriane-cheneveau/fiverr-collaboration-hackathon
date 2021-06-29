@@ -36,7 +36,7 @@ class Offre
 
 
     /**
-     * @ORM\OneToMany(targetEntity=Collaboration::class, mappedBy="offre", orphanRemoval=true)
+     * @ORM\OneToMany(targetEntity=Collaboration::class, mappedBy="offre", orphanRemoval=true, cascade={"persist"})
      */
     private $collaborations;
 

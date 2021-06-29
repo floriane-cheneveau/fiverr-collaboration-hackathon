@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Collaboration;
 use App\Entity\Offre;
 use App\Form\OffreType;
 use App\Repository\OffreRepository;
@@ -31,6 +32,9 @@ class OffreController extends AbstractController
     public function new(Request $request): Response
     {
         $offre = new Offre();
+        $collaboration = new Collaboration();
+        $collaboration->setOffre($offre);
+        $offre->getCollaborations()->add($collaboration);
         $form = $this->createForm(OffreType::class, $offre);
         $form->handleRequest($request);
 

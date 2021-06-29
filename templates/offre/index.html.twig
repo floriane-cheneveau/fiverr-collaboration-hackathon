@@ -3,22 +3,27 @@
 {% block title %}Offre index{% endblock %}
 
 {% block body %}
-    <h1>Offre index</h1>
+    <h1>Collaboration</h1>
+
+    <p> Cet espace vous permet de trouver facilement un ou plusieurs partenaires pour vous associer ensemble. 
+        Le but: créer de plus gros projets avec des compétences transverses. 
+        Vous pourrez échanger, partager, mais aussi gagner en productivité.
+    </p>
+
+    <h2>Offre</h2>
 
     <table class="table">
         <thead>
             <tr>
-                <th>Id</th>
                 <th>Nom</th>
-                <th>Sommaire</th>
-                <th>TempsDeLivraison</th>
+                <th>Description de l'offre</th>
+                <th>Delai de livraison</th>
                 <th>actions</th>
             </tr>
         </thead>
         <tbody>
         {% for offre in offres %}
             <tr>
-                <td>{{ offre.id }}</td>
                 <td>{{ offre.nom }}</td>
                 <td>{{ offre.sommaire }}</td>
                 <td>{{ offre.tempsDeLivraison }}</td>

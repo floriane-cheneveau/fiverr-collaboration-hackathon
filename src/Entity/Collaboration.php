@@ -23,11 +23,6 @@ class Collaboration
     private $remuneration;
 
     /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $categorie;
-
-    /**
      * @ORM\ManyToOne(targetEntity=Freelancer::class, inversedBy="collaborations")
      */
     private $freelancer;
@@ -54,18 +49,6 @@ class Collaboration
     public function setRemuneration(int $remuneration): self
     {
         $this->remuneration = $remuneration;
-
-        return $this;
-    }
-
-    public function getCategorie(): ?string
-    {
-        return $this->categorie;
-    }
-
-    public function setCategorie(string $categorie): self
-    {
-        $this->categorie = $categorie;
 
         return $this;
     }

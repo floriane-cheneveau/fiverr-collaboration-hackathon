@@ -15,10 +15,11 @@ class CollaborationType extends AbstractType
     {
         $builder
             ->add('remuneration')
-            ->add('categorie')
             ->add('freelancer', EntityType::class, [
                 'class' => Freelancer::class,
-                'choice_label' => 'nom',
+                'choice_label' => function ($freelancer) {
+                    return $freelancer->getNom() . ' ' . $freelancer->getCategorie();
+                },
             ])
         ;
     }

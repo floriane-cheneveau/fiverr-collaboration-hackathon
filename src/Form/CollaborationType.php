@@ -18,7 +18,7 @@ class CollaborationType extends AbstractType
             ->add('freelancer', EntityType::class, [
                 'class' => Freelancer::class,
                 'choice_label' => function ($freelancer) {
-                    return $freelancer->getNom() . ' ' . $freelancer->getCategorie();
+                    return $freelancer->getUsername() . ' ' . $freelancer->getCategorie();
                 },
             ])
         ;

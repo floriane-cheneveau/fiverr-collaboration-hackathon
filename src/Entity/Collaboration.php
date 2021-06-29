@@ -28,12 +28,12 @@ class Collaboration
     private $categorie;
 
     /**
-     * @ORM\ManyToOne(targetEntity=freelancer::class, inversedBy="collaborations")
+     * @ORM\ManyToOne(targetEntity=Freelancer::class, inversedBy="collaborations")
      */
     private $freelancer;
 
     /**
-     * @ORM\ManyToOne(targetEntity=offre::class, inversedBy="collaborations")
+     * @ORM\ManyToOne(targetEntity=Offre::class, inversedBy="collaborations")
      * @ORM\JoinColumn(nullable=false)
      */
     private $offre;

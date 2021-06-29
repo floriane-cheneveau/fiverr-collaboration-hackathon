@@ -24,7 +24,7 @@ class FreelancerFixtures extends Fixture
     {
         foreach (self::FREELANCERS as $freelancerData) {
             $freelancer = new Freelancer();
-            $freelancer->setNom($freelancerData[0]);
+            $freelancer->setUsername($freelancerData[0]);
             $freelancer->setCategorie($freelancerData[1]);
             $manager->persist($freelancer);
         }

@@ -7,6 +7,7 @@ use App\Entity\Offre;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CollectionType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -17,8 +18,12 @@ class OffreType extends AbstractType
         
         $builder
             ->add('nom')
-            ->add('sommaire')
-            ->add('tempsDeLivraison')
+            ->add('sommaire', TextType::class, [
+                'label' => 'description de le l\'offre'
+            ])
+            ->add('tempsDeLivraison', TextType::class, [
+                'label' => 'Delai de livraison'
+            ])
             ->add('collaborations', CollectionType::class, [
                 'entry_type' => CollaborationType::class,
                 'entry_options' => ['label' => false],

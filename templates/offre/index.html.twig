@@ -3,37 +3,34 @@
 {% block title %}Offre index{% endblock %}
 
 {% block body %}
-    <h1>Offre index</h1>
-
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Nom</th>
-                <th>Sommaire</th>
-                <th>TempsDeLivraison</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
+<div class="partie1">
+    <h1 class="titre">Collaboration</h1>
+        <div class="explication">
+            <p> Cet espace vous permet de trouver facilement un ou plusieurs partenaires pour vous associer ensemble.</p>
+            <p> Le but: créer de plus gros projets avec des compétences transverses. 
+            Vous pourrez échanger, partager, mais aussi gagner en productivité.
+            </p>
+            <a href="{{ path('offre_new') }}">Create new</a>
+        </div>
+    <a href=""><img class="logo" src="/image/cooperation.jpg"/></a>
+</div>
+<div>
+    <h2 class="titre">Offres</h2>
+    <ul>
         {% for offre in offres %}
-            <tr>
-                <td>{{ offre.id }}</td>
-                <td>{{ offre.nom }}</td>
-                <td>{{ offre.sommaire }}</td>
-                <td>{{ offre.tempsDeLivraison }}</td>
-                <td>
-                    <a href="{{ path('offre_show', {'id': offre.id}) }}">show</a>
-                    <a href="{{ path('offre_edit', {'id': offre.id}) }}">edit</a>
-                </td>
-            </tr>
+        <li>
+            <p>{{ offre.nom }}</p>
+            <p>{{ offre.sommaire }}</p>
+            <p>{{ offre.tempsDeLivraison }}</p>
+            <a href="{{ path('offre_show', {'id': offre.id}) }}">show</a>
+            <a href="{{ path('offre_edit', {'id': offre.id}) }}">edit</a>
+        </li>
         {% else %}
-            <tr>
-                <td colspan="5">no records found</td>
-            </tr>
+        <li>
+            <p colspan="5">no records found</p>
+        </li>
         {% endfor %}
-        </tbody>
-    </table>
-
-    <a href="{{ path('offre_new') }}">Create new</a>
-{% endblock %}
+    </ul>
+</div>    
+    {% endblock %}
+    

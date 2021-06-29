@@ -40,10 +40,16 @@ class Offre
      */
     private $collaborations;
 
+    /**
+     * @ORM\OneToMany(targetEntity=Freelancer::class, mappedBy="collaboration")
+     */
+    private $freelancers;
+
     public function __construct()
     {
         $this->yes = new ArrayCollection();
         $this->collaborations = new ArrayCollection();
+        $this->freelancers = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -111,6 +117,36 @@ class Offre
             // set the owning side to null (unless already changed)
             if ($collaboration->getOffre() === $this) {
                 $collaboration->setOffre(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Freelancer[]
+     */
+    public function getFreelancers(): Collection
+    {
+        return $this->freelancers;
+    }
+
+    public function addFreelancer(Freelancer $freelancer): self
+    {
+        if (!$this->freelancers->contains($freelancer)) {
+            $this->freelancers[] = $freelancer;
+            $freelancer->setCollaboration($this);
+        }
+
+        return $this;
+    }
+
+    public function removeFreelancer(Freelancer $freelancer): self
+    {
+        if ($this->freelancers->removeElement($freelancer)) {
+            // set the owning side to null (unless already changed)
+            if ($freelancer->getCollaboration() === $this) {
+                $freelancer->setCollaboration(null);
             }
         }
 

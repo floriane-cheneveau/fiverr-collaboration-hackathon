@@ -26,6 +26,10 @@ class FreelancerFixtures extends Fixture
             $freelancer = new Freelancer();
             $freelancer->setUsername($freelancerData[0]);
             $freelancer->setCategorie($freelancerData[1]);
+            $freelancer->setPassword($this->passwordEncoder->encodePassword(
+                $freelancer,
+                'freelancerpassword'
+            ));
             $manager->persist($freelancer);
         }
         $manager->flush();

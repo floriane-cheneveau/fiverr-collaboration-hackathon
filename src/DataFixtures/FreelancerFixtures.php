@@ -8,7 +8,7 @@ use Doctrine\Persistence\ObjectManager;
 
 class FreelancerFixtures extends Fixture
 {
-    const FREELANCERS = [
+     const FREELANCERS = [
         [
             'Remy',
             'Dev front'    
@@ -19,13 +19,18 @@ class FreelancerFixtures extends Fixture
             'etienne',
             'design'
         ]
-    ];
+    ];  
+
     public function load(ObjectManager $manager)
     {
-        foreach (self::FREELANCERS as $freelancerData) {
+         foreach (self::FREELANCERS as $freelancerData) {
             $freelancer = new Freelancer();
-            $freelancer->setNom($freelancerData[0]);
+              $freelancer->setUsername($freelancerData[0]);
             $freelancer->setCategorie($freelancerData[1]);
+            $freelancer->setPassword($this->passwordEncoder->encodePassword(
+                $freelancer,
+                'Freelancerpassword'
+            ));
             $manager->persist($freelancer);
         }
         $manager->flush();

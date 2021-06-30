@@ -5,22 +5,22 @@
 {% block body %}
     <h1>Offre</h1>
 
-    <table class="table">
-        <tbody>
-            <tr>
-                <th>Nom</th>
-                <td>{{ offre.nom }}</td>
-            </tr>
-            <tr>
-                <th>Detail de l'offre</th>
-                <td>{{ offre.sommaire }}</td>
-            </tr>
-            <tr>
-                <th>Delai de Livraison</th>
-                <td>{{ offre.tempsDeLivraison }}</td>
-            </tr>
-        </tbody>
-    </table>
+    <div class="table">
+        <ul>
+            <li>
+                <p>Nom</p>
+                <p>{{ offre.nom }}</p>
+            </li>
+            <li>
+                <p>Detail de l'offre</p>
+                <p>{{ offre.sommaire }}</p>
+            </li>
+            <li>
+                <p>Delai de Livraison</p>
+                <p>{{ offre.tempsDeLivraison }}</p>
+            </li>
+        </ul>
+    </div>
 
     <a href="{{ path('offre_index') }}">back to list</a>
 

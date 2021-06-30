@@ -12,6 +12,16 @@
 
     </head>
     <body>
+        <header>
+            <a href="{{ path('offre_index') }}">Accueil</a>
+            {% if app.user %}
+            <h3>{{ app.user.username }}</h3>
+            <a class="button" href="{{ path('app_logout') }}">Disconnect</a>
+            {% else %}
+            <a href="{{ path('app_register') }}">Sign Up</a>
+            <a class="button" href="{{ path('app_login') }}">Login</a>
+            {% endif %}
+        </header>
         {% block body %}{% endblock %}
         {% block javascripts %}
             {{ encore_entry_script_tags('app') }}

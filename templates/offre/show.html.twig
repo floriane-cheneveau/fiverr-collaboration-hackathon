@@ -5,6 +5,7 @@
 {% block body %}
     <h1>Offre</h1>
 
+<<<<<<< HEAD
     <div class="table">
         <ul>
             <li>
@@ -21,10 +22,23 @@
             </li>
         </ul>
     </div>
+=======
+<h2>{{ offre.nom }}</h2>
+>>>>>>> e8b94fc572b3a671d02fa197063648ba65ab0a97
 
-    <a href="{{ path('offre_index') }}">back to list</a>
+<h5>
+{% for key, collaboration in offre.collaborations %}
+    {% if key != 0 %}
+    , {{ collaboration.freelancer.username }}
+    {% else %}
+    par {{ collaboration.freelancer.username }}
+    {% endif %}
+{% endfor %}
+</h5>
 
-    <a href="{{ path('offre_edit', {'id': offre.id}) }}">edit</a>
+<p>{{ offre.sommaire }}</p>
+<h3>Delai de Livraison</h3><h4>{{ offre.tempsDeLivraison }}</h4>
+<h3>prix</h3><h4>{{ price }}€</h4>
+    {#<a href="{{ path('offre_edit', {'id': offre.id}) }}">edit</a>#}
 
-    {{ include('offre/_delete_form.html.twig') }}
 {% endblock %}

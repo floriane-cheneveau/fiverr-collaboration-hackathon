@@ -4,15 +4,14 @@
 
 {% block body %}
 <div class="partie1">
-    <h1 class="titre">Collaboration</h1>
-        <div class="explication">
-            <p> Cet espace vous permet de trouver facilement un ou plusieurs partenaires pour vous associer ensemble.</p>
-            <p> Le but: créer de plus gros projets avec des compétences transverses. 
-            Vous pourrez échanger, partager, mais aussi gagner en productivité.
-            </p>
-            <a href="{{ path('offre_new') }}">Create new</a>
-        </div>
-    <a href=""><img class="logo" src="/image/cooperation.jpg"/></a>
+    <div class="explication">
+        <h1 class="titre">Collaboration</h1>
+        <p> Cet espace vous permet de trouver facilement un ou plusieurs partenaires pour vous associer ensemble.</p>
+        <p> Le but: créer de plus gros projets avec des compétences transverses. 
+        Vous pourrez échanger, partager, mais aussi gagner en productivité.
+        </p>
+        <a href="{{ path('offre_new') }}">Create new</a>
+    </div>
 </div>
 <div>
     <h2 class="titre">Offres</h2>
@@ -23,7 +22,7 @@
             <p>{{ offre.sommaire }}</p>
             <p>{{ offre.tempsDeLivraison }}</p>
             <a href="{{ path('offre_show', {'id': offre.id}) }}">show</a>
-            <a href="{{ path('offre_edit', {'id': offre.id}) }}">edit</a>
+            {#<a href="{{ path('offre_edit', {'id': offre.id}) }}">edit</a>#}
         </li>
         {% else %}
         <li>

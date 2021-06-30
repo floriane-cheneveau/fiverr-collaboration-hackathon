@@ -4,7 +4,26 @@
 
 {% block body %}
 
+<<<<<<< HEAD
+    <div class="table">
+        <ul>
+            <li>
+                <p>Nom</p>
+                <p>{{ offre.nom }}</p>
+            </li>
+            <li>
+                <p>Detail de l'offre</p>
+                <p>{{ offre.sommaire }}</p>
+            </li>
+            <li>
+                <p>Delai de Livraison</p>
+                <p>{{ offre.tempsDeLivraison }}</p>
+            </li>
+        </ul>
+    </div>
+=======
 <h2>{{ offre.nom }}</h2>
+>>>>>>> e8b94fc572b3a671d02fa197063648ba65ab0a97
 
 <h5>
 {% for key, collaboration in offre.collaborations %}

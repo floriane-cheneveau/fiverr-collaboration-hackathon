@@ -1,7 +1,10 @@
-{{ form_start(form) }}
-    {{ form_row(form.nom) }}
-    {{ form_row(form.sommaire) }}
-    {{ form_row(form.tempsDeLivraison) }}
+<div class="form">
+    <ul>{{ form_start(form) }}</ul>
+        <li>{{ form_row(form.nom) }}</li>
+        <li>{{ form_row(form.sommaire) }}</li>
+        <li>{{ form_row(form.tempsDeLivraison) }}</li>
+    </ul>
+</div>
     <h3>Collaborations</h3>
     <ul class="collaborations" data-prototype="{{ form_widget(form.collaborations.vars.prototype)|e('html_attr') }}">
         {% for collaboration in form.collaborations %}

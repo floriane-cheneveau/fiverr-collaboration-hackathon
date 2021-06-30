@@ -5,26 +5,40 @@
 {% block body %}
     <h1>Offre</h1>
 
-    <table class="table">
-        <tbody>
-            <tr>
-                <th>Nom</th>
-                <td>{{ offre.nom }}</td>
-            </tr>
-            <tr>
-                <th>Detail de l'offre</th>
-                <td>{{ offre.sommaire }}</td>
-            </tr>
-            <tr>
-                <th>Delai de Livraison</th>
-                <td>{{ offre.tempsDeLivraison }}</td>
-            </tr>
-        </tbody>
-    </table>
+<<<<<<< HEAD
+    <div class="table">
+        <ul>
+            <li>
+                <p>Nom</p>
+                <p>{{ offre.nom }}</p>
+            </li>
+            <li>
+                <p>Detail de l'offre</p>
+                <p>{{ offre.sommaire }}</p>
+            </li>
+            <li>
+                <p>Delai de Livraison</p>
+                <p>{{ offre.tempsDeLivraison }}</p>
+            </li>
+        </ul>
+    </div>
+=======
+<h2>{{ offre.nom }}</h2>
+>>>>>>> e8b94fc572b3a671d02fa197063648ba65ab0a97
 
-    <a href="{{ path('offre_index') }}">back to list</a>
+<h5>
+{% for key, collaboration in offre.collaborations %}
+    {% if key != 0 %}
+    , {{ collaboration.freelancer.username }}
+    {% else %}
+    par {{ collaboration.freelancer.username }}
+    {% endif %}
+{% endfor %}
+</h5>
 
-    <a href="{{ path('offre_edit', {'id': offre.id}) }}">edit</a>
+<p>{{ offre.sommaire }}</p>
+<h3>Delai de Livraison</h3><h4>{{ offre.tempsDeLivraison }}</h4>
+<h3>prix</h3><h4>{{ price }}€</h4>
+    {#<a href="{{ path('offre_edit', {'id': offre.id}) }}">edit</a>#}
 
-    {{ include('offre/_delete_form.html.twig') }}
 {% endblock %}

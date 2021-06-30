@@ -16,10 +16,14 @@ header h3 {
     margin: 0;
 }
 
+header a {
+    color: white;
+}
+
 a {
     font-style: none;
     text-decoration: none;
-    color: white;
+    color: darkgreen;
 }
 
 .partie1 {

@@ -23,7 +23,7 @@
             <p>{{ offre.sommaire }}</p>
             <p>{{ offre.tempsDeLivraison }}</p>
             <a href="{{ path('offre_show', {'id': offre.id}) }}">show</a>
-            <a href="{{ path('offre_edit', {'id': offre.id}) }}">edit</a>
+            {#<a href="{{ path('offre_edit', {'id': offre.id}) }}">edit</a>#}
         </li>
         {% else %}
         <li>

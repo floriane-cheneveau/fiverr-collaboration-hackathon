@@ -68,8 +68,13 @@ class OffreController extends AbstractController
      */
     public function show(Offre $offre): Response
     {
+        $prix = 0;
+        foreach ($offre->getCollaborations() as $collaboration){
+            $prix += $collaboration->getRemuneration();
+        }
         return $this->render('offre/show.html.twig', [
             'offre' => $offre,
+            'price' => $prix
         ]);
     }
 

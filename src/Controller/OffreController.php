@@ -2,13 +2,16 @@
 
 namespace App\Controller;
 
+use App\Entity\Collaboration;
 use App\Entity\Offre;
 use App\Form\OffreType;
+use App\Repository\FreelancerRepository;
 use App\Repository\OffreRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Security\Core\Security;
 
 /**
  * @Route("/offre")
@@ -28,11 +31,23 @@ class OffreController extends AbstractController
     /**
      * @Route("/new", name="offre_new", methods={"GET","POST"})
      */
-    public function new(Request $request): Response
+    public function new(Request $request, FreelancerRepository $freelancerRepository): Response
     {
         $offre = new Offre();
+
+        $username = $request->getSession()->get(Security::LAST_USERNAME);
+        $user = $freelancerRepository->findOneBy(['username' => $username]);
+        $userCollaboration = new Collaboration();
+        $userCollaboration->setOffre($offre);
+        $userCollaboration->setFreelancer($user);
+        $offre->getCollaborations()->add($userCollaboration);
+
+        $collaboration = new Collaboration();
+        $collaboration->setOffre($offre);
+        $offre->getCollaborations()->add($collaboration);
         $form = $this->createForm(OffreType::class, $offre);
         $form->handleRequest($request);
+
 
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager = $this->getDoctrine()->getManager();
